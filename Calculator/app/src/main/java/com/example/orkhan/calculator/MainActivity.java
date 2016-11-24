@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNumbers = new Object[][]
                 {
                         {button_one, 1}, {button_two, 2}, {button_three, 3}, {button_four, 4},
-                        {button_five, 5}, {button_six, 6}, {button_seven, 4}, {button_eight, 8},
+                        {button_five, 5}, {button_six, 6}, {button_seven, 7}, {button_eight, 8},
                         {button_nine, 9}, {button_zero, 0}
                 };
         fillMap();
@@ -167,6 +167,21 @@ public class MainActivity extends AppCompatActivity {
                     else if(assignment.contains("-"))
                     {
                         arr = assignment.split("-");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                result = String.valueOf(number_one_double - number_two_double);
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else if(assignment.contains("×"))
                     {
@@ -277,6 +292,21 @@ public class MainActivity extends AppCompatActivity {
                     else if(assignment.contains("-"))
                     {
                         arr = assignment.split("-");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                screen.setText(String.valueOf(number_one_double - number_two_double));
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else if(assignment.contains("×"))
                     {

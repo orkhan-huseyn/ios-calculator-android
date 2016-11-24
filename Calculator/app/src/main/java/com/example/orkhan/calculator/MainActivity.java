@@ -150,21 +150,18 @@ public class MainActivity extends AppCompatActivity {
                         arr = assignment.split("\\+");
                         if(arr.length > 1)
                         {
-                            String number_one_string = arr[0];
-                            String number_two_string = arr[1];
                             double number_one_double = 0.0;
                             double number_two_double = 0.0;
-                            if(number_one_string!="" && number_two_string!="")
+                            try
                             {
                                 number_one_double = Double.parseDouble(arr[0]);
                                 number_two_double = Double.parseDouble(arr[1]);
+                                result = String.valueOf(number_one_double + number_two_double);
                             }
-                            else
+                            catch (NumberFormatException ex)
                             {
-                                number_one_double = 0.0;
-                                number_two_double = 0.0;
+                                //excpetion
                             }
-                            result = String.valueOf(number_one_double + number_two_double);
                         }
                     }
                     else if(assignment.contains("-"))
@@ -263,21 +260,18 @@ public class MainActivity extends AppCompatActivity {
                         arr = assignment.split("\\+");
                         if(arr.length > 1)
                         {
-                            String number_one_string = arr[0];
-                            String number_two_string = arr[1];
                             double number_one_double = 0.0;
                             double number_two_double = 0.0;
-                            if(number_one_string!="" && number_two_string!="")
+                            try
                             {
                                 number_one_double = Double.parseDouble(arr[0]);
                                 number_two_double = Double.parseDouble(arr[1]);
+                                screen.setText(String.valueOf(number_one_double + number_two_double));
                             }
-                            else
+                            catch (NumberFormatException ex)
                             {
-                                number_one_double = 0.0;
-                                number_two_double = 0.0;
+                                //excpetion
                             }
-                            screen.setText(String.valueOf(number_one_double + number_two_double));
                         }
                     }
                     else if(assignment.contains("-"))

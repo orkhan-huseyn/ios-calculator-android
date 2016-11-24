@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">My Application</string>
-    <string name="app_lbl">Search</string>
-    <string name="search_box">search query...</string>
-    <string name="button_srch">Start Crawling</string>
-</resources>

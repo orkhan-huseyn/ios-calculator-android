@@ -56,6 +56,8 @@
 
                 <Button
                     android:text="@string/button_c"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-thin"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button6"
@@ -65,6 +67,8 @@
 
                 <Button
                     android:text="@string/button_in"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button7"
@@ -74,6 +78,8 @@
 
                 <Button
                     android:text="@string/button_out"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button9"
@@ -83,7 +89,9 @@
 
                 <Button
                     android:text="@string/button_div"
+                    android:fontFamily="sans-serif-thin"
                     android:layout_width="wrap_content"
+                    android:textSize="30sp"
                     android:layout_height="match_parent"
                     android:id="@+id/button10"
                     android:background="@color/buttonOpert"
@@ -101,6 +109,8 @@
 
                 <Button
                     android:text="@string/button_seven"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -110,6 +120,8 @@
 
                 <Button
                     android:text="@string/button_eight"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -119,6 +131,8 @@
 
                 <Button
                     android:text="@string/button_nine"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -128,6 +142,8 @@
 
                 <Button
                     android:text="@string/button_mult"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonOpert"
                     android:textColor="@color/screenText"
                     android:textStyle="bold"
@@ -147,6 +163,8 @@
 
                 <Button
                     android:text="@string/button_four"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-thin"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -156,6 +174,8 @@
 
                 <Button
                     android:text="@string/button_five"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-thin"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -165,6 +185,8 @@
 
                 <Button
                     android:text="@string/button_six"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-thin"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -174,9 +196,11 @@
 
                 <Button
                     android:text="@string/button_min"
+                    android:fontFamily="sans-serif-thin"
                     android:background="@color/buttonOpert"
                     android:textColor="@color/screenText"
                     android:textStyle="bold"
+                    android:textSize="30sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button15"
@@ -192,6 +216,8 @@
 
                 <Button
                     android:text="@string/button_one"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-thin"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -201,6 +227,8 @@
 
                 <Button
                     android:text="@string/button_two"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -210,6 +238,8 @@
 
                 <Button
                     android:text="@string/button_three"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -219,6 +249,8 @@
 
                 <Button
                     android:text="@string/button_plus"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonOpert"
                     android:textColor="@color/screenText"
                     android:textStyle="bold"
@@ -237,6 +269,8 @@
 
                 <Button
                     android:text="@string/button_zero"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -245,16 +279,20 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:text=""
+                    android:text="@string/button_inv"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/button3"
                     android:layout_weight="1"
-                    tools:ignore="ButtonStyle" />
+                    tools:ignore="ButtonStyle"/>
 
                 <Button
                     android:text="@string/button_dot"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonNum"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -264,6 +302,8 @@
 
                 <Button
                     android:text="@string/button_equal"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="30sp"
                     android:background="@color/buttonOpert"
                     android:textColor="@color/screenText"
                     android:textStyle="bold"

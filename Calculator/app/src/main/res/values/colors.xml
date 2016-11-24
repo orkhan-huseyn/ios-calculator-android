@@ -7,5 +7,5 @@
     <color name="buttonNum">#C5C7CA</color>
     <color name="bgScreen">#202020</color>
     <color name="screenText">#DDDDDD</color>
-    <color name="buttonText">#111111</color>
+    <color name="buttonText">#000000</color>
 </resources>

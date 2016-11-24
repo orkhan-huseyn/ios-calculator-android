@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
             button_five, button_six, button_seven, button_eight,
             button_nine, button_zero;
     Button button_clear, button_mult, button_add, button_subt,
-            button_div, button_dot;
+            button_div, button_dot, button_inv;
     Button button_in, button_out;
 
     Object[][] buttonNumbers;
-    HashMap<Button, Double> map = new HashMap<Button, Double>();
-
+    HashMap<Button, Integer> map = new HashMap<Button, Integer>();
+    ArrayList<String> memory = new ArrayList<String>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,19 +31,13 @@ public class MainActivity extends AppCompatActivity {
         init();
         buttonNumbers = new Object[][]
                 {
-                        {button_one, 1.0}, {button_two, 2.0}, {button_three, 3.0}, {button_four, 4.0},
-                        {button_five, 5.0}, {button_six, 6.0}, {button_seven, 4.0}, {button_eight, 8.0},
-                        {button_nine, 9.0}, {button_zero, 0.0}
+                        {button_one, 1}, {button_two, 2}, {button_three, 3}, {button_four, 4},
+                        {button_five, 5}, {button_six, 6}, {button_seven, 4}, {button_eight, 8},
+                        {button_nine, 9}, {button_zero, 0}
                 };
         fillMap();
         setNumberActions();
-        button_clear.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                screen.setText("");
-            }
-        });
+        new Calculator();
     }
 
     private void init()
@@ -63,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         //functionalities
         button_clear = (Button)findViewById(R.id.button6);
         button_in = (Button)findViewById(R.id.button7);
+        button_inv = (Button)findViewById(R.id.button3);
         button_out = (Button)findViewById(R.id.button9);
         button_dot = (Button)findViewById(R.id.button22);
         //operators
@@ -80,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    screen.setText(String.valueOf(map.get(button)));
+                    screen.setText(screen.getText() + String.valueOf(map.get(button)));
                 }
             });
         }
@@ -90,7 +85,56 @@ public class MainActivity extends AppCompatActivity {
     {
         for(Object[] buttonNumber : buttonNumbers)
         {
-            map.put((Button)buttonNumber[0], (Double)buttonNumber[1]);
+            map.put((Button)buttonNumber[0], (Integer) buttonNumber[1]);
+        }
+    }
+
+    private class Calculator
+    {
+        public Calculator()
+        {
+            clear();
+            dot();
+            invalidate();
+        }
+
+        public void clear()
+        {
+            button_clear.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    screen.setText("");
+                }
+            });
+        }
+
+        public void dot()
+        {
+            button_dot.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    screen.setText(screen.getText() + ".");
+                }
+            });
+        }
+
+        public void invalidate()
+        {
+            button_inv.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    screen.setText("");
+                    memory.clear();
+                }
+            });
+        }
+
+        public void in()
+        {
+
         }
     }
 }

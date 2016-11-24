@@ -1,13 +1,11 @@
 package com.example.orkhan.calculator;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
             button_five, button_six, button_seven, button_eight,
             button_nine, button_zero;
     Button button_clear, button_mult, button_add, button_subt,
-            button_div, button_dot, button_inv;
+            button_div, button_dot, button_inv, button_res;
     Button button_in, button_out;
 
     Object[][] buttonNumbers;
@@ -65,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         button_subt = (Button)findViewById(R.id.button15);
         button_mult = (Button)findViewById(R.id.button11);
         button_div = (Button)findViewById(R.id.button10);
+        button_res = (Button)findViewById(R.id.button23);
+
     }
 
     private void setNumberActions()
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             in();
             out();
             arithmetics();
+            calculate();
         }
 
         public void clear()
@@ -141,7 +142,48 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    memory = screen.getText().toString();
+                    String result = "";
+                    String assignment = screen.getText().toString().replaceAll("\\s+", "");
+                    String[] arr = null;
+                    if(assignment.contains("+"))
+                    {
+                        arr = assignment.split("\\+");
+                        if(arr.length > 1)
+                        {
+                            String number_one_string = arr[0];
+                            String number_two_string = arr[1];
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            if(number_one_string!="" && number_two_string!="")
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                            }
+                            else
+                            {
+                                number_one_double = 0.0;
+                                number_two_double = 0.0;
+                            }
+                            result = String.valueOf(number_one_double + number_two_double);
+                        }
+                    }
+                    else if(assignment.contains("-"))
+                    {
+                        arr = assignment.split("-");
+                    }
+                    else if(assignment.contains("×"))
+                    {
+                        arr = assignment.split("×");
+                    }
+                    else if (assignment.contains("÷"))
+                    {
+                        arr = assignment.split("÷");
+                    }
+                    else
+                    {
+                        result = screen.getText().toString();
+                    }
+                    memory = result;
                 }
             });
         }
@@ -163,7 +205,10 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    if(!screen.getText().toString().contains("+"))
+                    if(!screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("×") &&
+                            !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " + ");
                 }
             });
@@ -172,7 +217,10 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    if(!screen.getText().toString().contains("-"))
+                    if(!screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("×") &&
+                            !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " - ");
                 }
             });
@@ -181,7 +229,10 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    if(!screen.getText().toString().contains("×"))
+                    if(!screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("×") &&
+                            !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " × ");
                 }
             });
@@ -190,8 +241,61 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    if(!screen.getText().toString().contains("÷"))
+                    if(!screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("×") &&
+                            !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " ÷ ");
+                }
+            });
+        }
+
+        public void calculate()
+        {
+            button_res.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    String assignment = screen.getText().toString().replaceAll("\\s+", "");
+                    String[] arr = null;
+                    if(assignment.contains("+"))
+                    {
+                        arr = assignment.split("\\+");
+                        if(arr.length > 1)
+                        {
+                            String number_one_string = arr[0];
+                            String number_two_string = arr[1];
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            if(number_one_string!="" && number_two_string!="")
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                            }
+                            else
+                            {
+                                number_one_double = 0.0;
+                                number_two_double = 0.0;
+                            }
+                            screen.setText(String.valueOf(number_one_double + number_two_double));
+                        }
+                    }
+                    else if(assignment.contains("-"))
+                    {
+                        arr = assignment.split("-");
+                    }
+                    else if(assignment.contains("×"))
+                    {
+                        arr = assignment.split("×");
+                    }
+                    else if (assignment.contains("÷"))
+                    {
+                        arr = assignment.split("÷");
+                    }
+                    else
+                    {
+                        screen.setText(screen.getText().toString());
+                    }
                 }
             });
         }

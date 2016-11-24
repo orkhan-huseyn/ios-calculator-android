@@ -5,8 +5,8 @@
     <string name="button_c">C</string>
     <string name="button_in">IN</string>
     <string name="button_out">OUT</string>
-    <string name="button_div">/</string>
-    <string name="button_mult">x</string>
+    <string name="button_div">÷</string>
+    <string name="button_mult">×</string>
     <string name="button_min">-</string>
     <string name="button_plus">+</string>
     <string name="button_equal">=</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -17,8 +17,6 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:weightSum="1">
 
         <LinearLayout
@@ -29,7 +27,6 @@
             tools:ignore="UselessLeaf">
             <TextView
                 android:height="100dp"
-                android:text="@string/app_name"
                 android:textSize="40sp"
                 android:paddingTop="@dimen/calc_screen_vertical_padding"
                 android:paddingBottom="@dimen/calc_screen_vertical_padding"
@@ -109,7 +106,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/button"
                     android:layout_weight="0.25"
-                    tools:ignore="ButtonStyle,NestedWeights" />
+                    tools:ignore="ButtonStyle,NestedWeights"/>
 
                 <Button
                     android:text="@string/button_eight"
@@ -146,7 +143,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.21">
+                android:layout_weight="0.20">
 
                 <Button
                     android:text="@string/button_four"
@@ -199,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button16"
-                    android:layout_weight="1"
+                    android:layout_weight="0.25"
                     tools:ignore="ButtonStyle,NestedWeights" />
 
                 <Button
@@ -208,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button17"
-                    android:layout_weight="1"
+                    android:layout_weight="0.25"
                     tools:ignore="ButtonStyle,HardcodedText" />
 
                 <Button
@@ -217,7 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button18"
-                    android:layout_weight="1"
+                    android:layout_weight="0.25"
                     tools:ignore="ButtonStyle" />
 
                 <Button
@@ -228,7 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/button19"
-                    android:layout_weight="1"
+                    android:layout_weight="0.25"
                     tools:ignore="ButtonStyle" />
             </LinearLayout>
 
@@ -241,17 +238,28 @@
                 <Button
                     android:text="@string/button_zero"
                     android:background="@color/buttonNum"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/button20"
-                    android:layout_weight="2" />
+                    tools:ignore="ButtonStyle,NestedWeights"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text=""
+                    android:background="@color/buttonNum"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button3"
+                    android:layout_weight="1"
+                    tools:ignore="ButtonStyle" />
 
                 <Button
                     android:text="@string/button_dot"
                     android:background="@color/buttonNum"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/button22"
+                    tools:ignore="ButtonStyle"
                     android:layout_weight="1" />
 
                 <Button
@@ -259,11 +267,12 @@
                     android:background="@color/buttonOpert"
                     android:textColor="@color/screenText"
                     android:textStyle="bold"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/button23"
+                    tools:ignore="ButtonStyle"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

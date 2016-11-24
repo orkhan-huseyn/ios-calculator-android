@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textViewStyle">@style/CalcTextViewStyle</item>
+        <item name="android:buttonStyle">@style/NumButtonStyle</item>
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,5 +10,9 @@
     </style>
     <style name="CalcTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+    <style name="NumButtonStyle" parent="android:Widget.Button">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>

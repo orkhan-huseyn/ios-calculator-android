@@ -6,5 +6,6 @@
     <color name="buttonOpert">#F78B11</color>
     <color name="buttonNum">#C5C7CA</color>
     <color name="bgScreen">#202020</color>
-    <color name="calcText">#DDDDDD</color>
+    <color name="screenText">#DDDDDD</color>
+    <color name="buttonText">#111111</color>
 </resources>

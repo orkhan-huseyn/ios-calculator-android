@@ -186,10 +186,40 @@ public class MainActivity extends AppCompatActivity {
                     else if(assignment.contains("×"))
                     {
                         arr = assignment.split("×");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                result = String.valueOf(number_one_double * number_two_double);
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else if (assignment.contains("÷"))
                     {
                         arr = assignment.split("÷");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                result = String.valueOf(number_one_double / number_two_double);
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else
                     {
@@ -218,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v)
                 {
                     if(!screen.getText().toString().contains("+") &&
-                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("-") &&
                             !screen.getText().toString().contains("×") &&
                             !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " + ");
@@ -230,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v)
                 {
                     if(!screen.getText().toString().contains("+") &&
-                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("-") &&
                             !screen.getText().toString().contains("×") &&
                             !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " - ");
@@ -242,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v)
                 {
                     if(!screen.getText().toString().contains("+") &&
-                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("-") &&
                             !screen.getText().toString().contains("×") &&
                             !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " × ");
@@ -254,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v)
                 {
                     if(!screen.getText().toString().contains("+") &&
-                            !screen.getText().toString().contains("+") &&
+                            !screen.getText().toString().contains("-") &&
                             !screen.getText().toString().contains("×") &&
                             !screen.getText().toString().contains("÷"))
                         screen.setText(screen.getText() + " ÷ ");
@@ -311,10 +341,40 @@ public class MainActivity extends AppCompatActivity {
                     else if(assignment.contains("×"))
                     {
                         arr = assignment.split("×");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                screen.setText(String.valueOf(number_one_double * number_two_double));
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else if (assignment.contains("÷"))
                     {
                         arr = assignment.split("÷");
+                        if(arr.length > 1)
+                        {
+                            double number_one_double = 0.0;
+                            double number_two_double = 0.0;
+                            try
+                            {
+                                number_one_double = Double.parseDouble(arr[0]);
+                                number_two_double = Double.parseDouble(arr[1]);
+                                screen.setText(String.valueOf(number_one_double / number_two_double));
+                            }
+                            catch (NumberFormatException ex)
+                            {
+                                //excpetion
+                            }
+                        }
                     }
                     else
                     {

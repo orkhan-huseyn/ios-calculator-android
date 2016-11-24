@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Object[][] buttonNumbers;
     HashMap<Button, Integer> map = new HashMap<Button, Integer>();
-    ArrayList<String> memory = new ArrayList<String>();
+    String memory = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
             clear();
             dot();
             invalidate();
+            in();
+            out();
+            arithmetics();
         }
 
         public void clear()
@@ -127,14 +130,70 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v)
                 {
                     screen.setText("");
-                    memory.clear();
+                    memory = "";
                 }
             });
         }
 
         public void in()
         {
+            button_in.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    memory = screen.getText().toString();
+                }
+            });
+        }
 
+        public void out()
+        {
+            button_out.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    screen.setText(screen.getText() + memory);
+                }
+            });
+        }
+
+        public void arithmetics()
+        {
+            button_add.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    if(!screen.getText().toString().contains("+"))
+                        screen.setText(screen.getText() + " + ");
+                }
+            });
+
+            button_subt.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    if(!screen.getText().toString().contains("-"))
+                        screen.setText(screen.getText() + " - ");
+                }
+            });
+
+            button_mult.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    if(!screen.getText().toString().contains("×"))
+                        screen.setText(screen.getText() + " × ");
+                }
+            });
+
+            button_div.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    if(!screen.getText().toString().contains("÷"))
+                        screen.setText(screen.getText() + " ÷ ");
+                }
+            });
         }
     }
 }

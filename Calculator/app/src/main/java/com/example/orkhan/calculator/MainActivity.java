@@ -119,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
             {
                 public void onClick(View v)
                 {
-                    screen.setText(screen.getText() + ".");
+                    if(!screen.getText().toString().contains("."))
+                        screen.setText(screen.getText() + ".");
                 }
             });
         }

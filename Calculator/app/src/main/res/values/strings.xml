@@ -11,7 +11,7 @@
     <string name="button_plus">+</string>
     <string name="button_equal">=</string>
     <string name="button_dot">.</string>
-    <string name="button_inv">inv</string>
+    <string name="button_inv">DEL</string>
     <string name="button_zero">0</string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>

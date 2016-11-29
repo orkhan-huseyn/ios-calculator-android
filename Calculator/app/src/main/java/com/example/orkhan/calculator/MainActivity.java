@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -104,6 +105,45 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculate()
     {
-        String[] array = screen.getText().toString().split("[-+×÷]");
+        double res = 0.0;
+        String text = screen.getText().toString();
+        try
+        {
+            if(!text.contains("-") && !text.contains("÷") && !text.contains("×"))
+            {
+                String[] array = text.split("\\+");
+                for(String s : array)
+                    res += Double.parseDouble(s);
+                screen.setText(Double.toString(res));
+            }
+            else if(!text.contains("+") && !text.contains("÷") && !text.contains("×"))
+            {
+                String[] array = text.split("-");
+                res = Double.parseDouble(array[0]);
+                for(int i=1;i<array.length;i++)
+                    res -= Double.parseDouble(array[i]);
+                screen.setText(Double.toString(res));
+            }
+            else if (!text.contains("+") && !text.contains("÷") && !text.contains("+"))
+            {
+                res = 1.0;
+                String[] array = text.split("×");
+                for (String s : array)
+                    res *= Double.parseDouble(s);
+                screen.setText(Double.toString(res));
+            }
+            else if(!text.contains("+") && !text.contains("×") && !text.contains("+"))
+            {
+                String[] array = text.split("÷");
+                res = Double.parseDouble(array[0]);
+                for(int i=1;i<array.length;i++)
+                    res /= Double.parseDouble(array[i]);
+                screen.setText(Double.toString(res));
+            }
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(getApplicationContext(), "Invalid Expression.", Toast.LENGTH_LONG).show();
+        }
     }
 }

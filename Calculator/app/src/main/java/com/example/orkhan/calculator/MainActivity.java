@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity
         {
             public void onClick(View v)
             {
-                memory = screen.getText().toString();
+                double mem = new Expression(screen.getText().toString()).evaluate();
+                memory = Double.toString(mem);
             }
         });
         findViewById(R.id.button9).setOnClickListener(new View.OnClickListener()

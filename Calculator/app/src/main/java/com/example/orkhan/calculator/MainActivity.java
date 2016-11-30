@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity
         {
             public void onClick(View v)
             {
-                if(!screen.getText().toString().contains("."))
+                String[] textExpr = screen.getText().toString().split("[-+÷×]");
+                if(!textExpr[textExpr.length-1].contains("."))
                     screen.append(".");
             }
         });

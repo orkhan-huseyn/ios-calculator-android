@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
     private int[] numberButtonIds = {R.id.button20, R.id.button16, R.id.button17, R.id.button18, R.id.button12,
             R.id.button13, R.id.button14, R.id.button2, R.id.button2, R.id.button4, R.id.button};
 
@@ -17,7 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView screen;
     private String memory;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    Expression expression;
+    String errorMessage;
+    double result = 0.0;
+
+    protected void onCreate(Bundle savedInstanceState) 
+	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -95,55 +100,17 @@ public class MainActivity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                calculate();
+                expression = new Expression(screen.getText().toString());
+                errorMessage = expression.getErrorMessage();
+                if(errorMessage != null && errorMessage != "")
+                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                else
+                    result = expression.evaluate();
+                screen.setText(Double.toString(result));
             }
         });
 
         for(int buttonId : operatorButtonIds)
             findViewById(buttonId).setOnClickListener(listener);
-    }
-
-    private void calculate()
-    {
-        double res = 0.0;
-        String text = screen.getText().toString();
-        try
-        {
-            if(!text.contains("-") && !text.contains("÷") && !text.contains("×"))
-            {
-                String[] array = text.split("\\+");
-                for(String s : array)
-                    res += Double.parseDouble(s);
-                screen.setText(Double.toString(res));
-            }
-            else if(!text.contains("+") && !text.contains("÷") && !text.contains("×"))
-            {
-                String[] array = text.split("-");
-                res = Double.parseDouble(array[0]);
-                for(int i=1;i<array.length;i++)
-                    res -= Double.parseDouble(array[i]);
-                screen.setText(Double.toString(res));
-            }
-            else if (!text.contains("+") && !text.contains("÷") && !text.contains("+"))
-            {
-                res = 1.0;
-                String[] array = text.split("×");
-                for (String s : array)
-                    res *= Double.parseDouble(s);
-                screen.setText(Double.toString(res));
-            }
-            else if(!text.contains("+") && !text.contains("×") && !text.contains("+"))
-            {
-                String[] array = text.split("÷");
-                res = Double.parseDouble(array[0]);
-                for(int i=1;i<array.length;i++)
-                    res /= Double.parseDouble(array[i]);
-                screen.setText(Double.toString(res));
-            }
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(getApplicationContext(), "Invalid Expression.", Toast.LENGTH_LONG).show();
-        }
     }
 }

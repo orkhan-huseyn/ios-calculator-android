@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
     Expression expression;
     String errorMessage;
     double result = 0.0;
+    boolean done = false;
 
     protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -38,7 +39,10 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Button button = (Button)view;
-                screen.append(button.getText());
+                if(done==true)
+                    screen.setText(button.getText());
+                else
+                    screen.append(button.getText());
             }
         };
 
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Button button = (Button)view;
                 screen.append(button.getText());
+                done = false;
             }
         };
 
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity
                 String[] textExpr = screen.getText().toString().split("[-+÷×]");
                 if(!textExpr[textExpr.length-1].contains("."))
                     screen.append(".");
+                done = false;
             }
         });
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener()
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity
                 String text = screen.getText().toString();
                 if(text.length() > 0)
                     screen.setText(text.substring(0, text.length()-1));
+                done = false;
             }
         });
         findViewById(R.id.button6).setOnClickListener(new View.OnClickListener()
@@ -81,6 +88,7 @@ public class MainActivity extends AppCompatActivity
             {
                 screen.setText("");
                 memory = "";
+                done = false;
             }
         });
         findViewById(R.id.button7).setOnClickListener(new View.OnClickListener()
@@ -89,6 +97,7 @@ public class MainActivity extends AppCompatActivity
             {
                 double mem = new Expression(screen.getText().toString()).evaluate();
                 memory = Double.toString(mem);
+                done = false;
             }
         });
         findViewById(R.id.button9).setOnClickListener(new View.OnClickListener()
@@ -96,6 +105,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 screen.append(memory);
+                done = false;
             }
         });
         findViewById(R.id.button23).setOnClickListener(new View.OnClickListener()
@@ -109,6 +119,7 @@ public class MainActivity extends AppCompatActivity
                 else
                     result = expression.evaluate();
                 screen.setText(Double.toString(result));
+                done = true;
             }
         });
 

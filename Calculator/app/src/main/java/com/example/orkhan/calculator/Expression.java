@@ -22,12 +22,14 @@ public class Expression
             {
                 String[] multiplications = multip.split("×");
                 double multRes = 1.0;
+                double dividient = 1.0;
                 for (String operand : multiplications)
                 {
                     if(operand.contains("÷"))
                     {
                         String[] divisions = operand.split("÷");
-                        double dividient = Double.parseDouble(divisions[0]);
+                        if(divisions.length > 0)
+                            dividient = Double.parseDouble(divisions[0]);
                         for(int i=1;i<divisions.length;i++)
                             dividient /= Double.parseDouble(divisions[i]);
                         multRes *= dividient;
